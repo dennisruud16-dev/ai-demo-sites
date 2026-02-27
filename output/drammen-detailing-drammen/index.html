@@ -6,215 +6,471 @@
 <title>Drammen Detailing — Premium Bilpleie i Drammen</title>
 <meta name="description" content="Drammen Detailing tilbyr profesjonell bilpleie og detailing i Drammen. Utvendig og innvendig rengjøring, polering, keramisk coating og mer." />
 <style>
+/* ───────────────────────────────────────────────────────────
+   RESET / BASE
+─────────────────────────────────────────────────────────── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body {
+body{
   font-family: system-ui, -apple-system, sans-serif;
-  background: #0a0a0a;
-  color: #e8e8e8;
-  line-height: 1.6;
+  background:#0a0a0a;
+  color:#e8e8e8;
+  line-height:1.6;
+  overflow-x:hidden;
 }
-h1, h2, h3, h4 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; }
-a { color: inherit; text-decoration: none; }
-img { max-width: 100%; display: block; }
+h1,h2,h3,h4{ font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+a{ color: inherit; text-decoration: none; }
+img{ max-width:100%; display:block; }
 
-/* ── Gull aksent ── */
-.gold { color: #c9a84c; }
-.btn-gold {
-  display: inline-block;
-  padding: 16px 36px;
-  background: #c9a84c;
+:root{
+  --bg:#0a0a0a;
+  --bg2:#111;
+  --card:#111;
+  --line:#1a1a1a;
+  --line2:#222;
+  --muted:#999;
+  --muted2:#888;
+  --gold:#c9a84c;
+  --gold2:#b8943f;
+  --shadow: 0 22px 70px rgba(0,0,0,.55);
+}
+
+/* ───────────────────────────────────────────────────────────
+   SUBTLE PREMIUM BACKGROUND ANIMATION
+   (Luksus glow som "puster" – ingen flashy effekter)
+─────────────────────────────────────────────────────────── */
+.bg-anim{
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events:none;
+  background: var(--bg);
+}
+.bg-anim::before,
+.bg-anim::after{
+  content:"";
+  position:absolute;
+  width: 950px;
+  height: 950px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: .18;
+  transform: translate3d(0,0,0);
+  animation: floatGlow 12s ease-in-out infinite;
+}
+.bg-anim::before{
+  left: -260px;
+  top: -220px;
+  background: radial-gradient(circle at 30% 30%, rgba(201,168,76,.55), rgba(201,168,76,0) 60%);
+}
+.bg-anim::after{
+  right: -320px;
+  bottom: -260px;
+  background: radial-gradient(circle at 30% 30%, rgba(201,168,76,.40), rgba(201,168,76,0) 60%);
+  animation-duration: 14s;
+  animation-delay: -2s;
+}
+@keyframes floatGlow{
+  0%   { transform: translate(0,0) scale(1); opacity:.16; }
+  50%  { transform: translate(40px, -20px) scale(1.05); opacity:.22; }
+  100% { transform: translate(0,0) scale(1); opacity:.16; }
+}
+@media (prefers-reduced-motion: reduce){
+  .bg-anim::before, .bg-anim::after { animation: none; }
+}
+
+/* ───────────────────────────────────────────────────────────
+   UTIL
+─────────────────────────────────────────────────────────── */
+.gold{ color: var(--gold); }
+.container{ max-width:1100px; margin:0 auto; padding:0 24px; }
+.section{ padding: 80px 0; }
+.section-title{
+  font-size:2.2rem;
+  text-align:center;
+  margin-bottom:48px;
+  letter-spacing:.02em;
+}
+.divider{
+  width:60px; height:2px;
+  background: var(--gold);
+  margin:16px auto 0;
+}
+
+/* ───────────────────────────────────────────────────────────
+   BUTTONS (micro-interactions)
+─────────────────────────────────────────────────────────── */
+.btn-gold, .btn-outline, .btn-ghost{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding: 14px 26px;
+  font-weight: 800;
+  font-size: .98rem;
+  letter-spacing: .04em;
+  border: 1px solid transparent;
+  cursor:pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .25s ease, color .25s ease, border-color .25s ease;
+  will-change: transform;
+}
+.btn-gold{
+  background: var(--gold);
   color: #0a0a0a;
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.04em;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s;
+  box-shadow: 0 18px 38px rgba(201,168,76,.18);
 }
-.btn-gold:hover { background: #b8943f; }
-.btn-outline {
-  display: inline-block;
-  padding: 16px 36px;
+.btn-gold:hover{ background: var(--gold2); transform: translateY(-1px); }
+.btn-gold:active{ transform: translateY(0px) scale(.99); }
+
+.btn-outline{
   background: transparent;
-  color: #c9a84c;
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.04em;
-  border: 2px solid #c9a84c;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s;
+  color: var(--gold);
+  border-color: var(--gold);
 }
-.btn-outline:hover { background: #c9a84c; color: #0a0a0a; }
-.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-.section { padding: 80px 0; }
-.section-title { font-size: 2.2rem; text-align: center; margin-bottom: 48px; letter-spacing: 0.02em; }
-.divider { width: 60px; height: 2px; background: #c9a84c; margin: 16px auto 0; }
-
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
-  padding: 40px 24px;
-  border-bottom: 1px solid #1a1a1a;
+.btn-outline:hover{
+  background: rgba(201,168,76,.12);
+  transform: translateY(-1px);
 }
-.hero h1 { font-size: 3.4rem; line-height: 1.15; margin-bottom: 20px; letter-spacing: -0.01em; }
-.hero p { font-size: 1.15rem; color: #999; max-width: 520px; margin: 0 auto 40px; }
-.hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-outline:active{ transform: translateY(0px) scale(.99); }
 
-/* ── TRUST ROW ── */
-.trust {
-  background: #111;
-  border-bottom: 1px solid #1a1a1a;
-  padding: 28px 24px;
-  text-align: center;
+.btn-ghost{
+  background: rgba(255,255,255,.03);
+  border-color: rgba(255,255,255,.10);
+  color: #e8e8e8;
 }
-.trust-inner { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
-.stars { color: #c9a84c; font-size: 1.4rem; letter-spacing: 2px; }
-.trust-text { color: #999; font-size: 0.95rem; }
+.btn-ghost:hover{
+  background: rgba(255,255,255,.06);
+  transform: translateY(-1px);
+}
+.btn-ghost:active{ transform: translateY(0px) scale(.99); }
 
-/* ── TJENESTER ── */
-.services-grid {
-  display: grid;
+/* ───────────────────────────────────────────────────────────
+   TOP NAV (kvalitetssignal + struktur)
+─────────────────────────────────────────────────────────── */
+.topnav-wrap{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background: rgba(10,10,10,.55);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.topnav{
+  max-width:1100px;
+  margin:0 auto;
+  padding: 12px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.brand{
+  display:flex; align-items:center; gap:10px;
+  min-width: 0;
+}
+.brandMark{
+  width:10px; height:10px;
+  border-radius:999px;
+  background: var(--gold);
+  box-shadow: 0 0 0 6px rgba(201,168,76,.10);
+}
+.brandText{
+  font-size: 13px;
+  color: #d9d9d9;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.navlinks{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.navlinks a{
+  font-size: 12.5px;
+  color: rgba(232,232,232,.80);
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.02);
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.navlinks a:hover{
+  background: rgba(255,255,255,.05);
+  border-color: rgba(201,168,76,.30);
+  transform: translateY(-1px);
+}
+.navCTA{
+  display:flex; align-items:center; gap:10px;
+}
+@media (max-width: 860px){
+  .navlinks{ display:none; }
+}
+@media (max-width: 480px){
+  .topnav{ padding: 10px 14px; }
+}
+
+/* ───────────────────────────────────────────────────────────
+   HERO
+─────────────────────────────────────────────────────────── */
+.hero{
+  min-height: 92vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(17,17,17,.55) 100%);
+  padding: 56px 24px 40px;
+  border-bottom: 1px solid var(--line);
+}
+.hero h1{
+  font-size: 3.4rem;
+  line-height: 1.15;
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
+  text-shadow: 0 18px 60px rgba(0,0,0,.65);
+}
+.hero p{
+  font-size: 1.12rem;
+  color: var(--muted);
+  max-width: 560px;
+  margin: 0 auto 34px;
+}
+.hero-buttons{
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.hero-meta{
+  margin-top: 26px;
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.pill{
+  font-size:12px;
+  color: rgba(232,232,232,.78);
+  padding: 8px 12px;
+  border-radius: 999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.02);
+}
+
+/* ───────────────────────────────────────────────────────────
+   TRUST ROW
+─────────────────────────────────────────────────────────── */
+.trust{
+  background: rgba(17,17,17,.65);
+  border-bottom: 1px solid var(--line);
+  padding: 24px 24px;
+  text-align:center;
+}
+.trust-inner{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.stars{ color: var(--gold); font-size: 1.35rem; letter-spacing: 2px; }
+.trust-text{ color: var(--muted); font-size: .95rem; }
+
+/* ───────────────────────────────────────────────────────────
+   SERVICES
+─────────────────────────────────────────────────────────── */
+.services-grid{
+  display:grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
+  gap:24px;
 }
-.service-card {
-  background: #111;
-  border: 1px solid #1a1a1a;
+.service-card{
+  background: rgba(17,17,17,.78);
+  border: 1px solid rgba(255,255,255,.08);
   padding: 36px 28px;
-  transition: border-color 0.3s, transform 0.3s;
+  box-shadow: 0 18px 50px rgba(0,0,0,.22);
+  transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
 }
-.service-card:hover { border-color: #c9a84c; transform: translateY(-4px); }
-.service-card h3 { font-size: 1.3rem; margin-bottom: 12px; color: #fff; }
-.service-card p { color: #888; font-size: 0.95rem; margin-bottom: 20px; }
-.service-price { font-size: 1.1rem; color: #c9a84c; font-weight: 700; }
+.service-card:hover{
+  border-color: rgba(201,168,76,.55);
+  transform: translateY(-4px);
+  box-shadow: 0 26px 70px rgba(0,0,0,.35);
+}
+.service-card h3{ font-size: 1.3rem; margin-bottom: 12px; color: #fff; }
+.service-card p{ color: var(--muted2); font-size: .95rem; margin-bottom: 18px; }
+.service-price{ font-size: 1.05rem; color: var(--gold); font-weight: 800; }
 
-/* ── FØR/ETTER ── */
-.gallery-grid { display: flex; flex-direction: column; gap: 32px; }
-.gallery-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.gallery-box {
-  background: #1a1a1a;
+/* ───────────────────────────────────────────────────────────
+   BEFORE/AFTER
+─────────────────────────────────────────────────────────── */
+.gallery-grid{ display:flex; flex-direction:column; gap:32px; }
+.gallery-pair{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+.gallery-box{
+  background: #141414;
   aspect-ratio: 16/10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  color: #555;
-  border: 1px solid #222;
+  display:flex; align-items:center; justify-content:center;
+  font-size: .88rem;
+  color: #666;
+  border: 1px solid rgba(255,255,255,.08);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: .10em;
 }
 
-/* ── FAQ ── */
-details {
-  background: #111;
-  border: 1px solid #1a1a1a;
-  margin-bottom: 8px;
+/* ───────────────────────────────────────────────────────────
+   FAQ
+─────────────────────────────────────────────────────────── */
+details{
+  background: rgba(17,17,17,.78);
+  border: 1px solid rgba(255,255,255,.08);
+  margin-bottom: 10px;
 }
-details[open] { border-color: #c9a84c; }
-summary {
+details[open]{ border-color: rgba(201,168,76,.55); }
+summary{
   padding: 20px 24px;
-  cursor: pointer;
-  font-size: 1.05rem;
-  font-weight: 600;
+  cursor:pointer;
+  font-size: 1.02rem;
+  font-weight: 700;
   list-style: none;
-  display: flex;
+  display:flex;
   justify-content: space-between;
-  align-items: center;
+  align-items:center;
 }
-summary::-webkit-details-marker { display: none; }
-summary::after { content: '+'; color: #c9a84c; font-size: 1.4rem; font-weight: 300; }
-details[open] summary::after { content: '−'; }
-details p { padding: 0 24px 20px; color: #999; font-size: 0.95rem; line-height: 1.7; }
+summary::-webkit-details-marker{ display:none; }
+summary::after{ content:'+'; color: var(--gold); font-size: 1.35rem; font-weight: 300; }
+details[open] summary::after{ content:'−'; }
+details p{
+  padding: 0 24px 20px;
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.7;
+}
 
-/* ── KONTAKT ── */
-.contact-grid {
-  display: grid;
+/* ───────────────────────────────────────────────────────────
+   CONTACT
+─────────────────────────────────────────────────────────── */
+.contact-grid{
+  display:grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-  align-items: start;
+  align-items:start;
 }
-.contact-info h3 { font-size: 1.2rem; margin-bottom: 8px; color: #fff; }
-.contact-info p { color: #888; margin-bottom: 24px; font-size: 0.95rem; }
-.contact-map {
-  background: #1a1a1a;
+.contact-info h3{ font-size: 1.2rem; margin-bottom: 8px; color:#fff; }
+.contact-info p{ color: var(--muted2); margin-bottom: 22px; font-size:.95rem; }
+.contact-map{
+  background: #141414;
   aspect-ratio: 4/3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #555;
-  border: 1px solid #222;
-  font-size: 0.9rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#666;
+  border: 1px solid rgba(255,255,255,.08);
+  font-size: .9rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: .10em;
 }
 
-/* ── FOOTER ── */
-.footer {
-  text-align: center;
+/* ───────────────────────────────────────────────────────────
+   FOOTER
+─────────────────────────────────────────────────────────── */
+.footer{
+  text-align:center;
   padding: 40px 24px;
-  border-top: 1px solid #1a1a1a;
-  color: #555;
-  font-size: 0.85rem;
+  border-top: 1px solid rgba(255,255,255,.08);
+  color: #666;
+  font-size: .85rem;
 }
 
-/* ── STICKY MOBIL KNAPP ── */
-.sticky-call {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
+/* ───────────────────────────────────────────────────────────
+   STICKY MOBILE CALL
+─────────────────────────────────────────────────────────── */
+.sticky-call{
+  display:none;
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:1000;
   padding: 12px 24px;
-  background: #c9a84c;
-  text-align: center;
+  background: var(--gold);
+  text-align:center;
+  box-shadow: 0 -18px 45px rgba(0,0,0,.35);
 }
-.sticky-call a {
-  color: #0a0a0a;
-  font-weight: 700;
-  font-size: 1.1rem;
-  letter-spacing: 0.04em;
+.sticky-call a{
+  color:#0a0a0a;
+  font-weight: 900;
+  font-size: 1.05rem;
+  letter-spacing:.04em;
 }
 
-/* ── RESPONSIVT ── */
-@media (max-width: 768px) {
-  .hero h1 { font-size: 2.2rem; }
-  .hero p { font-size: 1rem; }
-  .section { padding: 56px 0; }
-  .section-title { font-size: 1.7rem; margin-bottom: 32px; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .sticky-call { display: block; }
-  body { padding-bottom: 60px; }
+/* ───────────────────────────────────────────────────────────
+   RESPONSIVE
+─────────────────────────────────────────────────────────── */
+@media (max-width: 768px){
+  .hero h1{ font-size: 2.2rem; }
+  .hero p{ font-size: 1rem; }
+  .section{ padding: 56px 0; }
+  .section-title{ font-size: 1.7rem; margin-bottom: 32px; }
+  .contact-grid{ grid-template-columns: 1fr; }
+  .sticky-call{ display:block; }
+  body{ padding-bottom: 62px; }
 }
-@media (max-width: 480px) {
-  .hero h1 { font-size: 1.8rem; }
-  .hero-buttons { flex-direction: column; align-items: center; }
-  .btn-gold, .btn-outline { width: 100%; text-align: center; }
-  .gallery-pair { grid-template-columns: 1fr; }
+@media (max-width: 480px){
+  .hero h1{ font-size: 1.85rem; }
+  .hero-buttons{ flex-direction:column; align-items:center; }
+  .btn-gold, .btn-outline, .btn-ghost{ width:100%; text-align:center; }
+  .gallery-pair{ grid-template-columns: 1fr; }
 }
 </style>
 </head>
-<body>
 
-<!-- ════════ HERO ════════ -->
-<section class="hero">
-  <div>
-    <h1>Drammen Detailing<br>Premium bilpleie i <span class="gold">Drammen</span></h1>
+<body>
+<div class="bg-anim" aria-hidden="true"></div>
+
+<!-- TOP NAV -->
+<div class="topnav-wrap">
+  <div class="topnav">
+    <div class="brand">
+      <div class="brandMark" aria-hidden="true"></div>
+      <div class="brandText">Drammen Detailing • Drammen</div>
+    </div>
+
+    <div class="navlinks">
+      <a href="#tjenester">Tjenester</a>
+      <a href="#resultater">Resultater</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+
+    <div class="navCTA">
+      <a class="btn-ghost" href="https://www.google.com/maps" target="_blank" rel="noopener">Maps</a>
+      <a class="btn-gold" href="tel:+4790111222">Ring nå</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container">
+    <h1>Drammen Detailing<br/>Premium bilpleie i <span class="gold">Drammen</span></h1>
     <p>Profesjonell detailing og bilpleie som gir bilen din showroom-kvalitet. Hver gang.</p>
+
     <div class="hero-buttons">
       <a href="tel:+4790111222" class="btn-gold">Ring nå</a>
       <a href="https://www.google.com/maps" target="_blank" rel="noopener" class="btn-outline">Se i Google Maps</a>
     </div>
+
+    <div class="hero-meta">
+      <span class="pill">⭐ 4.3 på Google</span>
+      <span class="pill">📍 Bragernes torg 2, 3017 Drammen</span>
+      <span class="pill">⚡ Rask respons</span>
+    </div>
   </div>
 </section>
 
-<!-- ════════ TRUST ROW ════════ -->
+<!-- TRUST ROW -->
 <div class="trust">
   <div class="trust-inner">
     <span class="stars">★★★★★</span>
@@ -222,7 +478,7 @@ details p { padding: 0 24px 20px; color: #999; font-size: 0.95rem; line-height: 
   </div>
 </div>
 
-<!-- ════════ TJENESTER ════════ -->
+<!-- TJENESTER -->
 <section class="section" id="tjenester">
   <div class="container">
     <h2 class="section-title">Våre tjenester<div class="divider"></div></h2>
@@ -251,8 +507,8 @@ details p { padding: 0 24px 20px; color: #999; font-size: 0.95rem; line-height: 
   </div>
 </section>
 
-<!-- ════════ FØR / ETTER ════════ -->
-<section class="section" id="resultater" style="background: #0e0e0e;">
+<!-- FØR / ETTER -->
+<section class="section" id="resultater" style="background: rgba(14,14,14,.60); border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06);">
   <div class="container">
     <h2 class="section-title">Før &amp; etter<div class="divider"></div></h2>
     <div class="gallery-grid">
@@ -272,7 +528,7 @@ details p { padding: 0 24px 20px; color: #999; font-size: 0.95rem; line-height: 
   </div>
 </section>
 
-<!-- ════════ FAQ ════════ -->
+<!-- FAQ -->
 <section class="section" id="faq">
   <div class="container">
     <h2 class="section-title">Vanlige spørsmål<div class="divider"></div></h2>
@@ -299,31 +555,38 @@ details p { padding: 0 24px 20px; color: #999; font-size: 0.95rem; line-height: 
   </div>
 </section>
 
-<!-- ════════ KONTAKT ════════ -->
-<section class="section" id="kontakt" style="background: #0e0e0e;">
+<!-- KONTAKT -->
+<section class="section" id="kontakt" style="background: rgba(14,14,14,.60); border-top: 1px solid rgba(255,255,255,.06);">
   <div class="container">
     <h2 class="section-title">Kontakt oss<div class="divider"></div></h2>
     <div class="contact-grid">
       <div class="contact-info">
         <h3>Drammen Detailing</h3>
-        <p>Bragernes torg 2, 3017 Drammen<br>Drammen</p>
+        <p>Bragernes torg 2, 3017 Drammen<br/>Drammen</p>
+
         <h3>Telefon</h3>
         <p><a href="tel:+4790111222" class="gold">+47 901 11 222</a></p>
+
         <h3>Åpningstider</h3>
-        <p>Man–fre: 08:00–17:00<br>Lør: 09:00–15:00<br>Søn: Stengt</p>
-        <a href="tel:+4790111222" class="btn-gold" style="margin-top: 8px;">Ring oss nå</a>
+        <p>Man–fre: 08:00–17:00<br/>Lør: 09:00–15:00<br/>Søn: Stengt</p>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 10px;">
+          <a href="tel:+4790111222" class="btn-gold">Ring oss nå</a>
+          <a href="https://www.google.com/maps" target="_blank" rel="noopener" class="btn-outline">Åpne kart</a>
+        </div>
       </div>
+
       <div class="contact-map">Kart-placeholder</div>
     </div>
   </div>
 </section>
 
-<!-- ════════ FOOTER ════════ -->
+<!-- FOOTER -->
 <footer class="footer">
   &copy; 2026 Drammen Detailing. Alle rettigheter reservert.
 </footer>
 
-<!-- ════════ STICKY MOBIL RINGEKNAPP ════════ -->
+<!-- STICKY MOBILE CALL -->
 <div class="sticky-call">
   <a href="tel:+4790111222">📞 Ring Drammen Detailing nå</a>
 </div>
