@@ -4,107 +4,385 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Oslo Bilpleie AS – Bilpleie i Oslo</title>
-  <meta name="description" content="Bilpleie i Oslo. Bestill time hos Oslo Bilpleie AS. 4.6 på Google" />
+  <meta name="description" content="Bilpleie i Oslo. Bestill time hos Oslo Bilpleie AS. 4.6 på Google." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <meta property="og:title" content="Oslo Bilpleie AS – Bilpleie i Oslo">
+  <meta property="og:description" content="Bestill time på under 30 sekunder. 4.6 på Google.">
+  <meta property="og:type" content="website">
+
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;color:#111;background:#fff}
-    .wrap{max-width:980px;margin:0 auto;padding:24px}
-    .hero{padding:36px 0 18px;border-bottom:1px solid #eee}
-    h1{font-size:34px;line-height:1.15;margin:0 0 10px}
-    .sub{font-size:16px;color:#444;margin:0 0 16px}
-    .pill{display:inline-block;background:#f5f5f5;border:1px solid #e7e7e7;padding:6px 10px;border-radius:999px;font-size:13px;margin-right:8px;margin-bottom:8px}
-    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
-    .btn{display:inline-block;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700}
-    .btnPrimary{background:#111;color:#fff}
-    .btnGhost{border:1px solid #ddd;color:#111}
-    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;margin:24px 0}
-    .card{border:1px solid #eee;border-radius:16px;padding:16px}
-    .card h2{margin:0 0 10px;font-size:18px}
-    ul{margin:10px 0 0;padding-left:18px;color:#222}
-    li{margin:6px 0}
-    .note{font-size:13px;color:#666;margin-top:14px}
-    .footer{border-top:1px solid #eee;margin-top:28px;padding-top:18px;font-size:13px;color:#666}
-    .small{font-size:12px;color:#777}
-    .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .ph{background:#f5f5f5;border:1px dashed #ddd;border-radius:12px;height:140px;display:flex;align-items:center;justify-content:center;color:#777;font-size:13px}
-    @media (max-width:800px){.grid{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+    :root{
+      --bg:#0b0f19;
+      --card: rgba(255,255,255,.06);
+      --line: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --muted2: rgba(255,255,255,.52);
+      --accent: #7c3aed;
+      --accent2: #22c55e;
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --r: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1000px 500px at 10% 0%, rgba(124,58,237,.25), transparent 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(34,197,94,.18), transparent 60%),
+        var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit}
+    .wrap{max-width:1080px;margin:0 auto;padding:24px}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:12px;padding:14px 16px;border:1px solid var(--line);
+      border-radius:999px;background:rgba(255,255,255,.03);backdrop-filter: blur(8px);
+    }
+    .brand{display:flex;gap:10px;align-items:center;min-width:0}
+    .logo{
+      width:34px;height:34px;border-radius:12px;
+      background: linear-gradient(135deg, rgba(124,58,237,.9), rgba(34,197,94,.75));
+      box-shadow: 0 10px 25px rgba(124,58,237,.22);
+      flex:0 0 auto;
+    }
+    .brand h1{font-size:14px;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .pill{
+      font-size:12px;color:var(--muted);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      padding:6px 10px;border-radius:999px;
+    }
+    .hero{
+      padding:28px 0 18px;
+      display:grid;grid-template-columns: 1.15fr .85fr;gap:18px;
+      align-items:stretch;
+    }
+    .headline{
+      border:1px solid var(--line);border-radius:var(--r);
+      background:rgba(255,255,255,.03);box-shadow:var(--shadow);
+      padding:22px;
+    }
+    .headline h2{margin:0 0 10px;font-size:34px;line-height:1.08;letter-spacing:-.02em}
+    .headline p{margin:0 0 14px;color:var(--muted);font-size:15px;line-height:1.55}
+    .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:12px 14px;border-radius:14px;text-decoration:none;font-weight:800;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+    }
+    .btnPrimary{
+      border:0;
+      background: linear-gradient(135deg, rgba(124,58,237,1), rgba(34,197,94,1));
+      box-shadow: 0 14px 30px rgba(124,58,237,.18);
+    }
+    .btnSmall{padding:10px 12px;border-radius:12px;font-weight:750}
+    .rightCard{
+      border:1px solid var(--line);border-radius:var(--r);
+      background:rgba(255,255,255,.03);box-shadow:var(--shadow);
+      padding:18px;display:flex;flex-direction:column;gap:12px;
+    }
+    .kv{display:grid;grid-template-columns: 1fr;gap:10px}
+    .kv .row{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:13px}
+    .kv .row b{color:var(--text);font-weight:800}
+    .badge{
+      display:flex;gap:10px;align-items:center;
+      padding:12px;border-radius:14px;border:1px solid var(--line);
+      background:rgba(0,0,0,.18);
+    }
+    .badgeIcon{
+      width:34px;height:34px;border-radius:12px;
+      background: rgba(255,255,255,.06);
+      display:flex;align-items:center;justify-content:center;
+      flex:0 0 auto;
+    }
+    .badgeTitle{font-size:13px;margin:0;color:var(--text);font-weight:850}
+    .badgeSub{font-size:12px;margin:0;color:var(--muted2)}
+    .grid{
+      display:grid;grid-template-columns: 1fr 1fr 1fr;gap:12px;
+      margin:18px 0 0;
+    }
+    .card{
+      border:1px solid var(--line);border-radius:16px;
+      background:rgba(255,255,255,.03);
+      padding:16px;
+    }
+    .card h3{margin:0 0 8px;font-size:14px}
+    .card p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+    .section{
+      margin-top:18px;
+      border:1px solid var(--line);border-radius:var(--r);
+      background:rgba(255,255,255,.03);
+      padding:18px;
+    }
+    .section h3{margin:0 0 12px;font-size:16px}
+    .services{display:grid;grid-template-columns: 1fr 1fr;gap:12px}
+    .svc{
+      border:1px solid var(--line);border-radius:16px;
+      background:rgba(0,0,0,.18);
+      padding:14px;
+      display:flex;flex-direction:column;gap:8px;
+    }
+    .svcTop{display:flex;justify-content:space-between;align-items:center;gap:10px}
+    .svcTop b{font-size:13px}
+    .price{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:4px 8px;border-radius:999px}
+    .svc ul{margin:0;padding-left:18px;color:var(--muted);font-size:13px;line-height:1.5}
+    .gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .ph{
+      height:170px;border-radius:16px;border:1px dashed rgba(255,255,255,.18);
+      background:rgba(0,0,0,.18);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--muted2);font-size:13px;
+    }
+    .twoCol{display:grid;grid-template-columns: 1fr 1fr;gap:12px}
+    .faq{display:grid;grid-template-columns: 1fr 1fr;gap:12px}
+    details{
+      border:1px solid var(--line);border-radius:16px;
+      background:rgba(0,0,0,.18);
+      padding:12px;
+    }
+    summary{cursor:pointer;font-weight:850;font-size:13px}
+    details p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.5}
+    .footer{
+      margin:18px 0 70px;
+      color:var(--muted2);font-size:12px;
+      display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    }
+    .demoNote{
+      margin-top:10px;
+      font-size:12px;color:var(--muted2);
+      border-left:3px solid rgba(124,58,237,.7);
+      padding-left:10px;
+    }
+    .sticky{
+      position:fixed;left:0;right:0;bottom:0;
+      background:rgba(10,14,24,.70);
+      backdrop-filter: blur(10px);
+      border-top:1px solid rgba(255,255,255,.10);
+      padding:10px 14px;
+      display:flex;justify-content:center;z-index:50;
+    }
+    .sticky .inner{
+      max-width:1080px;width:100%;
+      display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+    }
+    .stickyText{font-size:12px;color:var(--muted);line-height:1.35}
+    .stickyBtns{display:flex;gap:10px;flex-wrap:wrap}
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .services{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      .twoCol{grid-template-columns:1fr}
+      .faq{grid-template-columns:1fr}
+      .headline h2{font-size:30px}
+    }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Oslo Bilpleie AS",
+    "address": "Storgata 1, 0184 Oslo",
+    "telephone": "+47 900 00 000",
+    "areaServed": "Oslo"
+  }
+  </script>
 </head>
+
 <body>
   <div class="wrap">
-    <header class="hero">
-      <h1>Oslo Bilpleie AS – bilpleie i Oslo</h1>
-      <p class="sub">Rask respons • Tydelige priser • Bestill time på under 30 sekunder.</p>
-
-      <div>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div style="min-width:0">
+          <h1>Oslo Bilpleie AS</h1>
+          <div style="font-size:12px;color:var(--muted2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+            Bilpleie i Oslo • 4.6 på Google
+          </div>
+        </div>
+      </div>
+      <div class="meta">
         <span class="pill">📍 Storgata 1, 0184 Oslo</span>
-        <span class="pill">⭐ 4.6 på Google</span>
         <span class="pill">📞 +47 900 00 000</span>
       </div>
+    </div>
 
-      <div class="ctaRow">
-        <a class="btn btnPrimary" href="tel:+4790000000">Ring og bestill</a>
-        <a class="btn btnGhost" href="https://www.google.com/maps" target="_blank" rel="noopener">Åpne i Google Maps</a>
-      </div>
-
-      <p class="note">
-        Demo: Denne siden er laget som en uferdig demoversjon basert på offentlig info. Når dere sier ja, finpusser vi design/tekst og kobler til domene.
-      </p>
-    </header>
-
-    <section class="grid">
-      <div class="card">
-        <h2>Tjenester</h2>
-        <ul>
-          <li>Utvendig vask + forsegling</li>
-          <li>Innvendig rens (seter, tepper, lukt)</li>
-          <li>Polering (1–2 steg)</li>
-          <li>Keramisk coating</li>
-        </ul>
-
-        <div class="two" style="margin-top:14px">
-          <div class="ph">Før / etter (demo)</div>
-          <div class="ph">Før / etter (demo)</div>
-        </div>
-
-        <p class="small" style="margin-top:10px">
-          Når dere sier ja: vi legger inn ekte før/etter-bilder, priser, og evt. booking-lenke.
+    <section class="hero">
+      <div class="headline">
+        <h2>Bilpleie som ser dyr ut.<br/>Bestill time i dag.</h2>
+        <p>
+          En enkel og profesjonell bestillingsside som gjør det lett å ringe, finne dere, og velge riktig behandling.
+          Bygget for mobil — og for å konvertere.
         </p>
-      </div>
 
-      <aside class="card">
-        <h2>Bestill raskt</h2>
-        <p style="margin:0 0 10px;color:#444">
-          Ring oss, eller åpne kartet for rute og åpningstider.
-        </p>
         <div class="ctaRow">
-          <a class="btn btnPrimary" href="tel:+4790000000">Ring nå</a>
-          <a class="btn btnGhost" href="https://www.google.com/maps" target="_blank" rel="noopener">Kart</a>
+          <a class="btn btnPrimary" href="tel:+4790000000">📞 Ring og bestill</a>
+          <a class="btn" href="https://www.google.com/maps" target="_blank" rel="noopener">🗺️ Åpne i Google Maps</a>
         </div>
 
-        <div style="margin-top:14px">
-          <h2 style="margin-top:0">Hvorfor dette fungerer</h2>
-          <ul>
-            <li>Klar CTA over fold</li>
-            <li>Tillit via rating + adresse</li>
-            <li>Mobil-first: ring med ett trykk</li>
-          </ul>
+        <div class="demoNote">
+          Demo: Dette er en uferdig demoversjon basert på offentlig info. Når dere sier ja, finpusser vi design/tekst, legger inn ekte bilder, priser og (om ønskelig) booking.
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Rask respons</h3>
+            <p>En tydelig CTA og kontakt gjør at flere faktisk tar kontakt — spesielt på mobil.</p>
+          </div>
+          <div class="card">
+            <h3>Tillit på sekunder</h3>
+            <p>Adresse + rating + klar struktur gir trygghet uten at kunden må lete.</p>
+          </div>
+          <div class="card">
+            <h3>Enkel oppgradering</h3>
+            <p>Vi kan koble til domene, egen e-post, og booking når dere er klare.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="rightCard">
+        <div class="badge">
+          <div class="badgeIcon">⭐</div>
+          <div>
+            <p class="badgeTitle">4.6 på Google</p>
+            <p class="badgeSub">Basert på Google-anmeldelser</p>
+          </div>
+        </div>
+
+        <div class="badge">
+          <div class="badgeIcon">⏱️</div>
+          <div>
+            <p class="badgeTitle">Bestill på under 30 sek</p>
+            <p class="badgeSub">Rett til ring/kart fra mobilen</p>
+          </div>
+        </div>
+
+        <div class="kv">
+          <div class="row"><span>Sted</span><b>Oslo</b></div>
+          <div class="row"><span>Telefon</span><b>+47 900 00 000</b></div>
+          <div class="row"><span>Adresse</span><b>Storgata 1, 0184 Oslo</b></div>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn btnPrimary btnSmall" href="tel:+4790000000">Ring nå</a>
+          <a class="btn btnSmall" href="https://www.google.com/maps" target="_blank" rel="noopener">Kart</a>
         </div>
       </aside>
     </section>
 
-    <section class="card">
-      <h2>Kontakt</h2>
-      <p style="margin:0;color:#444">
-        <strong>Oslo Bilpleie AS</strong><br>
-        Storgata 1, 0184 Oslo<br>
-        Telefon: <a href="tel:+4790000000">+47 900 00 000</a>
+    <section class="section">
+      <h3>Tjenester</h3>
+      <div class="services">
+        <div class="svc">
+          <div class="svcTop"><b>Utvendig vask + forsegling</b><span class="price">fra 799,-</span></div>
+          <ul>
+            <li>Skånsom håndvask + felgrens</li>
+            <li>Tørk + beskyttelse / quick seal</li>
+          </ul>
+        </div>
+        <div class="svc">
+          <div class="svcTop"><b>Innvendig rens</b><span class="price">fra 1.290,-</span></div>
+          <ul>
+            <li>Seter/tepper/detaljer</li>
+            <li>Luktbehandling ved behov</li>
+          </ul>
+        </div>
+        <div class="svc">
+          <div class="svcTop"><b>Polering (1–2 steg)</b><span class="price">fra 2.490,-</span></div>
+          <ul>
+            <li>Fjerner vaskeriper/oksidering</li>
+            <li>Øker glans og dybde</li>
+          </ul>
+        </div>
+        <div class="svc">
+          <div class="svcTop"><b>Keramisk coating</b><span class="price">fra 4.990,-</span></div>
+          <ul>
+            <li>Langvarig beskyttelse</li>
+            <li>Enklere vedlikehold</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin:12px 0 0;color:var(--muted2);font-size:12px">
+        Prisene over er demo-plassholdere. Når dere sier ja, legger vi inn deres faktiske priser/tilvalg og en tydelig “hva som er inkludert”.
       </p>
     </section>
 
-    <footer class="footer">
+    <section class="section">
+      <h3>Før / etter (demo)</h3>
+      <div class="gallery">
+        <div class="ph">Bildeplassholder (før/etter)</div>
+        <div class="ph">Bildeplassholder (før/etter)</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>Ofte stilte spørsmål</h3>
+      <div class="faq">
+        <details>
+          <summary>Hvor lang tid tar en full behandling?</summary>
+          <p>Avhenger av bil og valgt pakke. Ved “ja” legger vi inn deres reelle estimater og gjør det superlett å forstå.</p>
+        </details>
+        <details>
+          <summary>Tilbyr dere drop-in?</summary>
+          <p>Vi kan fremheve deres policy tydelig her (drop-in, timebestilling, helg, osv.).</p>
+        </details>
+        <details>
+          <summary>Hva er forskjellen på polering og coating?</summary>
+          <p>Polering forbedrer lakken visuelt. Coating gir beskyttelse. I endelig versjon skriver vi dette i deres tone.</p>
+        </details>
+        <details>
+          <summary>Hvordan bestiller jeg?</summary>
+          <p>Én-klikk ringeknapp og kart er prioritert. Vi kan også legge inn booking-lenke om dere har det.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>Kontakt</h3>
+      <div class="twoCol">
+        <div class="card" style="background:rgba(0,0,0,.18)">
+          <h3>Oslo Bilpleie AS</h3>
+          <p style="margin:0;color:var(--muted)">
+            Storgata 1, 0184 Oslo<br>
+            Telefon: <a href="tel:+4790000000">+47 900 00 000</a>
+          </p>
+          <div class="ctaRow" style="margin-top:12px">
+            <a class="btn btnPrimary btnSmall" href="tel:+4790000000">Ring</a>
+            <a class="btn btnSmall" href="https://www.google.com/maps" target="_blank" rel="noopener">Kart</a>
+          </div>
+        </div>
+        <div class="card" style="background:rgba(0,0,0,.18)">
+          <h3>“Done-for-you” oppsett</h3>
+          <p style="margin:0;color:var(--muted)">
+            Når dere sier ja: vi finpusser design, legger inn ekte bilder/priser, og kan koble til domene. Alt uten fram-og-tilbake.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
       <div>© 2026 Oslo Bilpleie AS (demo)</div>
-      <div class="small">Denne demoversjonen er laget for å vise hvordan en enkel konverteringsside kan se ut.</div>
-    </footer>
+      <div>Bygget som demoversjon for rask “ja/nei”-beslutning.</div>
+    </div>
+  </div>
+
+  <div class="sticky">
+    <div class="inner">
+      <div class="stickyText">
+        <b>Oslo Bilpleie AS</b> • Oslo • 4.6 på Google<br/>
+        Klar til å gjøre denne live på deres domene når dere sier ja.
+      </div>
+      <div class="stickyBtns">
+        <a class="btn btnPrimary btnSmall" href="tel:+4790000000">📞 Ring</a>
+        <a class="btn btnSmall" href="https://www.google.com/maps" target="_blank" rel="noopener">🗺️ Kart</a>
+      </div>
+    </div>
   </div>
 </body>
 </html>
