@@ -1,439 +1,332 @@
-<!doctype html>
-<html lang="no">
+<!DOCTYPE html>
+<html lang="nb">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Drammen Detailing – Bilpleie i Drammen</title>
-  <meta name="description" content="Bestill bilpleie i Drammen. Ring Drammen Detailing nå. 4.3 på Google." />
-  <meta name="robots" content="noindex, nofollow" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Drammen Detailing — Premium Bilpleie i Drammen</title>
+<meta name="description" content="Drammen Detailing tilbyr profesjonell bilpleie og detailing i Drammen. Utvendig og innvendig rengjøring, polering, keramisk coating og mer." />
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #0a0a0a;
+  color: #e8e8e8;
+  line-height: 1.6;
+}
+h1, h2, h3, h4 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
 
-  <meta property="og:title" content="Drammen Detailing – Bilpleie i Drammen">
-  <meta property="og:description" content="Konverteringsside for bilpleie. Ring på ett trykk. 4.3 på Google.">
-  <meta property="og:type" content="website">
+/* ── Gull aksent ── */
+.gold { color: #c9a84c; }
+.btn-gold {
+  display: inline-block;
+  padding: 16px 36px;
+  background: #c9a84c;
+  color: #0a0a0a;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.btn-gold:hover { background: #b8943f; }
+.btn-outline {
+  display: inline-block;
+  padding: 16px 36px;
+  background: transparent;
+  color: #c9a84c;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  border: 2px solid #c9a84c;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+.btn-outline:hover { background: #c9a84c; color: #0a0a0a; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 80px 0; }
+.section-title { font-size: 2.2rem; text-align: center; margin-bottom: 48px; letter-spacing: 0.02em; }
+.divider { width: 60px; height: 2px; background: #c9a84c; margin: 16px auto 0; }
 
-  <style>
-    :root{
-      --bg:#0b0f19;
-      --card: rgba(255,255,255,.06);
-      --line: rgba(255,255,255,.10);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.68);
-      --muted2: rgba(255,255,255,.52);
-      --accent: #7c3aed;
-      --accent2: #22c55e;
-      --shadow: 0 18px 60px rgba(0,0,0,.35);
-      --r: 18px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(1100px 520px at 12% 0%, rgba(124,58,237,.28), transparent 60%),
-        radial-gradient(900px 520px at 90% 10%, rgba(34,197,94,.18), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.02), transparent 28%),
-        var(--bg);
-      color:var(--text);
-    }
-    a{color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:24px}
-    .topbar{
-      display:flex;align-items:center;justify-content:space-between;
-      gap:12px;padding:14px 16px;border:1px solid var(--line);
-      border-radius:999px;background:rgba(255,255,255,.03);backdrop-filter: blur(8px);
-    }
-    .brand{display:flex;gap:10px;align-items:center;min-width:0}
-    .logo{
-      width:34px;height:34px;border-radius:12px;
-      background: linear-gradient(135deg, rgba(124,58,237,.95), rgba(34,197,94,.80));
-      box-shadow: 0 12px 30px rgba(124,58,237,.22);
-      flex:0 0 auto;
-    }
-    .brand h1{font-size:14px;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .brand .sub{font-size:12px;color:var(--muted2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .meta{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-    .pill{
-      font-size:12px;color:var(--muted);
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.02);
-      padding:6px 10px;border-radius:999px;
-    }
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+  padding: 40px 24px;
+  border-bottom: 1px solid #1a1a1a;
+}
+.hero h1 { font-size: 3.4rem; line-height: 1.15; margin-bottom: 20px; letter-spacing: -0.01em; }
+.hero p { font-size: 1.15rem; color: #999; max-width: 520px; margin: 0 auto 40px; }
+.hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-    .hero{
-      padding:18px 0 10px;
-      display:grid;grid-template-columns: 1.25fr .75fr;gap:14px;
-      align-items:stretch;
-    }
-    .panel{
-      border:1px solid var(--line);
-      border-radius:var(--r);
-      background:rgba(255,255,255,.03);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-    .panelPad{padding:18px}
-    .headline h2{
-      margin:0 0 10px;
-      font-size:36px;line-height:1.06;letter-spacing:-.02em;
-    }
-    .headline p{
-      margin:0 0 14px;color:var(--muted);
-      font-size:15px;line-height:1.55;
-    }
+/* ── TRUST ROW ── */
+.trust {
+  background: #111;
+  border-bottom: 1px solid #1a1a1a;
+  padding: 28px 24px;
+  text-align: center;
+}
+.trust-inner { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.stars { color: #c9a84c; font-size: 1.4rem; letter-spacing: 2px; }
+.trust-text { color: #999; font-size: 0.95rem; }
 
-    .banner{
-      display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;
-      padding:12px 14px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      background: linear-gradient(90deg, rgba(124,58,237,.18), rgba(34,197,94,.12));
-    }
-    .banner b{font-size:13px}
-    .banner span{font-size:12px;color:var(--muted)}
-    .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      padding:12px 14px;border-radius:14px;text-decoration:none;font-weight:850;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.02);
-    }
-    .btnPrimary{
-      border:0;
-      background: linear-gradient(135deg, rgba(124,58,237,1), rgba(34,197,94,1));
-      box-shadow: 0 16px 34px rgba(124,58,237,.18);
-    }
-    .btnSmall{padding:10px 12px;border-radius:12px;font-weight:850}
+/* ── TJENESTER ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+.service-card {
+  background: #111;
+  border: 1px solid #1a1a1a;
+  padding: 36px 28px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.service-card:hover { border-color: #c9a84c; transform: translateY(-4px); }
+.service-card h3 { font-size: 1.3rem; margin-bottom: 12px; color: #fff; }
+.service-card p { color: #888; font-size: 0.95rem; margin-bottom: 20px; }
+.service-price { font-size: 1.1rem; color: #c9a84c; font-weight: 700; }
 
-    .trustRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .trust{
-      display:inline-flex;gap:8px;align-items:center;
-      border:1px solid var(--line);
-      background:rgba(0,0,0,.18);
-      padding:8px 10px;border-radius:999px;
-      font-size:12px;color:var(--muted);
-    }
+/* ── FØR/ETTER ── */
+.gallery-grid { display: flex; flex-direction: column; gap: 32px; }
+.gallery-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.gallery-box {
+  background: #1a1a1a;
+  aspect-ratio: 16/10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #555;
+  border: 1px solid #222;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
 
-    .rightStack{display:flex;flex-direction:column;gap:12px}
-    .priceBox{
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:var(--r);
-      background:rgba(0,0,0,.18);
-      padding:16px;
-    }
-    .priceTop{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-    .priceTop h3{margin:0;font-size:14px}
-    .priceTop .tag{
-      font-size:12px;color:var(--muted);
-      border:1px solid var(--line);
-      padding:4px 8px;border-radius:999px;
-      background:rgba(255,255,255,.02);
-      white-space:nowrap;
-    }
-    .price{
-      margin-top:8px;
-      font-size:28px;font-weight:900;letter-spacing:-.02em;
-    }
-    .priceSub{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
-    .bullets{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:13px;line-height:1.5}
-    .bullets li{margin:6px 0}
+/* ── FAQ ── */
+details {
+  background: #111;
+  border: 1px solid #1a1a1a;
+  margin-bottom: 8px;
+}
+details[open] { border-color: #c9a84c; }
+summary {
+  padding: 20px 24px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; color: #c9a84c; font-size: 1.4rem; font-weight: 300; }
+details[open] summary::after { content: '−'; }
+details p { padding: 0 24px 20px; color: #999; font-size: 0.95rem; line-height: 1.7; }
 
-    .kv{
-      display:grid;grid-template-columns: 1fr;
-      gap:10px;
-      padding:14px;
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:var(--r);
-      background:rgba(0,0,0,.18);
-    }
-    .kv .row{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:13px}
-    .kv .row b{color:var(--text);font-weight:900}
+/* ── KONTAKT ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.contact-info h3 { font-size: 1.2rem; margin-bottom: 8px; color: #fff; }
+.contact-info p { color: #888; margin-bottom: 24px; font-size: 0.95rem; }
+.contact-map {
+  background: #1a1a1a;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  border: 1px solid #222;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
 
-    .section{
-      margin-top:14px;
-      border:1px solid var(--line);
-      border-radius:var(--r);
-      background:rgba(255,255,255,.03);
-      box-shadow:var(--shadow);
-      padding:18px;
-    }
-    .section h3{margin:0 0 12px;font-size:16px}
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 1px solid #1a1a1a;
+  color: #555;
+  font-size: 0.85rem;
+}
 
-    .services{display:grid;grid-template-columns: 1fr 1fr;gap:12px}
-    .svc{
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:16px;
-      background:rgba(0,0,0,.18);
-      padding:14px;
-      display:flex;flex-direction:column;gap:8px;
-    }
-    .svcTop{display:flex;justify-content:space-between;align-items:center;gap:10px}
-    .svcTop b{font-size:13px}
-    .priceTag{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:4px 8px;border-radius:999px}
-    .svc ul{margin:0;padding-left:18px;color:var(--muted);font-size:13px;line-height:1.5}
+/* ── STICKY MOBIL KNAPP ── */
+.sticky-call {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 12px 24px;
+  background: #c9a84c;
+  text-align: center;
+}
+.sticky-call a {
+  color: #0a0a0a;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+}
 
-    .gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .ph{
-      height:180px;border-radius:16px;border:1px dashed rgba(255,255,255,.18);
-      background:rgba(0,0,0,.18);
-      display:flex;align-items:center;justify-content:center;
-      color:var(--muted2);font-size:13px;text-align:center;padding:10px;
-    }
-
-    .faq{display:grid;grid-template-columns: 1fr 1fr;gap:12px}
-    details{
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:16px;
-      background:rgba(0,0,0,.18);
-      padding:12px;
-    }
-    summary{cursor:pointer;font-weight:900;font-size:13px}
-    details p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.5}
-
-    .footer{
-      margin:14px 0 72px;
-      color:var(--muted2);font-size:12px;
-      display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
-    }
-    .fineprint{
-      margin-top:10px;
-      font-size:12px;color:var(--muted2);
-      border-left:3px solid rgba(124,58,237,.7);
-      padding-left:10px;
-      line-height:1.5;
-    }
-
-    .sticky{
-      position:fixed;left:0;right:0;bottom:0;
-      background:rgba(10,14,24,.72);
-      backdrop-filter: blur(10px);
-      border-top:1px solid rgba(255,255,255,.10);
-      padding:10px 14px;
-      display:flex;justify-content:center;z-index:50;
-    }
-    .sticky .inner{
-      max-width:1100px;width:100%;
-      display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;
-    }
-    .stickyText{font-size:12px;color:var(--muted);line-height:1.35}
-    .stickyBtns{display:flex;gap:10px;flex-wrap:wrap}
-
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .services{grid-template-columns:1fr}
-      .gallery{grid-template-columns:1fr}
-      .faq{grid-template-columns:1fr}
-      .headline h2{font-size:32px}
-      .meta{display:none}
-    }
-  </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Drammen Detailing",
-    "address": "Bragernes torg 2, 3017 Drammen",
-    "telephone": "+47 901 11 222",
-    "areaServed": "Drammen"
-  }
-  </script>
+/* ── RESPONSIVT ── */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.2rem; }
+  .hero p { font-size: 1rem; }
+  .section { padding: 56px 0; }
+  .section-title { font-size: 1.7rem; margin-bottom: 32px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .sticky-call { display: block; }
+  body { padding-bottom: 60px; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.8rem; }
+  .hero-buttons { flex-direction: column; align-items: center; }
+  .btn-gold, .btn-outline { width: 100%; text-align: center; }
+  .gallery-pair { grid-template-columns: 1fr; }
+}
+</style>
 </head>
-
 <body>
-  <div class="wrap">
-    <div class="topbar">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div style="min-width:0">
-          <h1>Drammen Detailing</h1>
-          <div class="sub">Bilpleie i Drammen • 4.3 på Google</div>
-        </div>
-      </div>
-      <div class="meta">
-        <span class="pill">📍 Bragernes torg 2, 3017 Drammen</span>
-        <span class="pill">📞 +47 901 11 222</span>
-      </div>
-    </div>
 
-    <section class="hero">
-      <!-- LEFT: Premium headline + hard conversion -->
-      <div class="panel">
-        <div class="banner">
-          <div>
-            <b>Profesjonell bestillingsside</b><br>
-            <span>Bygget for mobil og for å få flere som faktisk ringer.</span>
-          </div>
-          <div style="margin-left:auto">
-            <span class="pill">Klar “ja/nei”-demo</span>
-          </div>
-        </div>
-
-        <div class="panelPad headline">
-          <h2>Drammen Detailing<br/>Bilpleie i Drammen</h2>
-          <p>
-            Ren, premium og konverteringsfokusert side som gjør det lett å finne dere, stole på dere og bestille.
-            Alt viktig over “folden” — ingen scrolling før kontakt.
-          </p>
-
-          <div class="ctaRow">
-            <a class="btn btnPrimary" href="tel:+4790111222">📞 Ring og bestill</a>
-            <a class="btn" href="https://www.google.com/maps" target="_blank" rel="noopener">🗺️ Åpne i Google Maps</a>
-          </div>
-
-          <div class="trustRow">
-            <span class="trust">⭐ 4.3 på Google</span>
-            <span class="trust">📍 Lokal • Drammen</span>
-            <span class="trust">⚡ Ett-trykk ring</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT: Price/offer + contact facts -->
-      <div class="rightStack">
-        <div class="priceBox">
-          <div class="priceTop">
-            <h3>Fast månedspris</h3>
-            <div class="tag">Alt inkludert</div>
-          </div>
-          <div class="price">1.990 kr / mnd</div>
-          <div class="priceSub">
-            Ingen oppstart i demo-fasen. Når dere sier ja: vi finpusser og gjør den “klar for live”.
-          </div>
-          <ul class="bullets">
-            <li>Premium design + tekst som føles “ekte”</li>
-            <li>Mobil-first ring/CTA (flere henvendelser)</li>
-            <li>Oppdateringer/justeringer inkludert</li>
-            <li>Kobling til domene når dere ønsker</li>
-          </ul>
-
-          <div class="ctaRow" style="margin-top:14px">
-            <a class="btn btnPrimary btnSmall" href="tel:+4790111222">📞 Ja – ring meg</a>
-            <a class="btn btnSmall" href="https://www.google.com/maps" target="_blank" rel="noopener">Se kart</a>
-          </div>
-        </div>
-
-        <div class="kv">
-          <div class="row"><span>Sted</span><b>Drammen</b></div>
-          <div class="row"><span>Telefon</span><b>+47 901 11 222</b></div>
-          <div class="row"><span>Adresse</span><b>Bragernes torg 2, 3017 Drammen</b></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h3>Tjenester</h3>
-      <div class="services">
-        <div class="svc">
-          <div class="svcTop"><b>Utvendig vask + forsegling</b><span class="priceTag">fra 799,-</span></div>
-          <ul>
-            <li>Skånsom håndvask + felgrens</li>
-            <li>Tørk + beskyttelse / quick seal</li>
-          </ul>
-        </div>
-        <div class="svc">
-          <div class="svcTop"><b>Innvendig rens</b><span class="priceTag">fra 1.290,-</span></div>
-          <ul>
-            <li>Seter/tepper/detaljer</li>
-            <li>Luktbehandling ved behov</li>
-          </ul>
-        </div>
-        <div class="svc">
-          <div class="svcTop"><b>Polering (1–2 steg)</b><span class="priceTag">fra 2.490,-</span></div>
-          <ul>
-            <li>Mer glans + mindre riper</li>
-            <li>Ser “nybil” ut igjen</li>
-          </ul>
-        </div>
-        <div class="svc">
-          <div class="svcTop"><b>Keramisk coating</b><span class="priceTag">fra 4.990,-</span></div>
-          <ul>
-            <li>Langvarig beskyttelse</li>
-            <li>Enklere vedlikehold</li>
-          </ul>
-        </div>
-      </div>
-      <p style="margin:12px 0 0;color:var(--muted2);font-size:12px">
-        Prisene over er demo-plassholdere. Ved “ja” setter vi deres faktiske priser og tydelig “hva som er inkludert”.
-      </p>
-    </section>
-
-    <section class="section">
-      <h3>Før / etter</h3>
-      <div class="gallery">
-        <div class="ph">Plassholder: før/etter-bilde 1<br/>Ved “ja”: vi legger inn ekte bilder</div>
-        <div class="ph">Plassholder: før/etter-bilde 2<br/>Ved “ja”: vi legger inn ekte bilder</div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h3>Ofte stilte spørsmål</h3>
-      <div class="faq">
-        <details>
-          <summary>Hvor lang tid tar en full behandling?</summary>
-          <p>Avhenger av bil og valgt pakke. Når dere sier ja, legger vi inn deres reelle estimater i samme stil.</p>
-        </details>
-        <details>
-          <summary>Tilbyr dere drop-in?</summary>
-          <p>Vi kan tydeliggjøre deres policy her (drop-in, timebestilling, helg, osv.).</p>
-        </details>
-        <details>
-          <summary>Hva er forskjellen på polering og coating?</summary>
-          <p>Polering forbedrer lakken visuelt. Coating beskytter. I endelig versjon skriver vi dette i deres tone.</p>
-        </details>
-        <details>
-          <summary>Hvordan bestiller jeg raskest?</summary>
-          <p>Ringeknappen er prioritert for mobil. Vi kan også legge inn booking-lenke dersom dere har det.</p>
-        </details>
-      </div>
-    </section>
-
-    <section class="section">
-      <h3>Kontakt</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-        <div class="svc" style="border-radius:var(--r)">
-          <div class="svcTop"><b>Drammen Detailing</b><span class="priceTag">Drammen</span></div>
-          <div style="color:var(--muted);font-size:13px;line-height:1.5">
-            Bragernes torg 2, 3017 Drammen<br>
-            Telefon: <a href="tel:+4790111222">+47 901 11 222</a>
-          </div>
-          <div class="ctaRow" style="margin-top:12px">
-            <a class="btn btnPrimary btnSmall" href="tel:+4790111222">Ring</a>
-            <a class="btn btnSmall" href="https://www.google.com/maps" target="_blank" rel="noopener">Kart</a>
-          </div>
-        </div>
-        <div class="svc" style="border-radius:var(--r)">
-          <div class="svcTop"><b>Hvordan dette blir “live”</b><span class="priceTag">Done-for-you</span></div>
-          <ul style="margin:0;padding-left:18px;color:var(--muted);font-size:13px;line-height:1.5">
-            <li>Vi finpusser tekst/design så det matcher dere</li>
-            <li>Legger inn ekte bilder/priser</li>
-            <li>Kobler til domene når dere ønsker</li>
-            <li>Alt uten masse fram-og-tilbake</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="fineprint">
-        Demo-notat: Denne siden er laget som en rask demoversjon basert på offentlig info, for å gjøre beslutningen enkel.
-        Ved “ja” blir alt gjort ferdig og gjort “ekte”.
-      </div>
-    </section>
-
-    <div class="footer">
-      <div>© 2026 Drammen Detailing (demo)</div>
-      <div>Premium “ja/nei”-demo — klar for å finpusses ved godkjenning.</div>
+<!-- ════════ HERO ════════ -->
+<section class="hero">
+  <div>
+    <h1>Drammen Detailing<br>Premium bilpleie i <span class="gold">Drammen</span></h1>
+    <p>Profesjonell detailing og bilpleie som gir bilen din showroom-kvalitet. Hver gang.</p>
+    <div class="hero-buttons">
+      <a href="tel:+4790111222" class="btn-gold">Ring nå</a>
+      <a href="https://www.google.com/maps" target="_blank" rel="noopener" class="btn-outline">Se i Google Maps</a>
     </div>
   </div>
+</section>
 
-  <div class="sticky">
-    <div class="inner">
-      <div class="stickyText">
-        <b>Drammen Detailing</b> • Drammen • 4.3 på Google<br/>
-        Fast pris: <b>1.990 kr/mnd</b> • Ring for å si ja.
+<!-- ════════ TRUST ROW ════════ -->
+<div class="trust">
+  <div class="trust-inner">
+    <span class="stars">★★★★★</span>
+    <span class="trust-text"><strong class="gold">4.3 på Google</strong> — basert på Google-anmeldelser</span>
+  </div>
+</div>
+
+<!-- ════════ TJENESTER ════════ -->
+<section class="section" id="tjenester">
+  <div class="container">
+    <h2 class="section-title">Våre tjenester<div class="divider"></div></h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Utvendig vask</h3>
+        <p>Grundig håndvask, felgrens, dekkvask og tørk med mikrofiber. Bilen stråler som ny.</p>
+        <span class="service-price">fra kr 799,-</span>
       </div>
-      <div class="stickyBtns">
-        <a class="btn btnPrimary btnSmall" href="tel:+4790111222">📞 Ring</a>
-        <a class="btn btnSmall" href="https://www.google.com/maps" target="_blank" rel="noopener">🗺️ Kart</a>
+      <div class="service-card">
+        <h3>Innvendig rens</h3>
+        <p>Dyprens av seter, matter, dashbord og alle overflater. Fjerner lukt og flekker.</p>
+        <span class="service-price">fra kr 1 499,-</span>
+      </div>
+      <div class="service-card">
+        <h3>Polering</h3>
+        <p>Maskinpolering som fjerner riper, swirl marks og oksidering. Lakken får tilbake gløden.</p>
+        <span class="service-price">fra kr 2 999,-</span>
+      </div>
+      <div class="service-card">
+        <h3>Keramisk coating</h3>
+        <p>Langvarig beskyttelse med premium keramisk coating. Holder lakken beskyttet i årevis.</p>
+        <span class="service-price">fra kr 5 999,-</span>
       </div>
     </div>
   </div>
+</section>
+
+<!-- ════════ FØR / ETTER ════════ -->
+<section class="section" id="resultater" style="background: #0e0e0e;">
+  <div class="container">
+    <h2 class="section-title">Før &amp; etter<div class="divider"></div></h2>
+    <div class="gallery-grid">
+      <div class="gallery-pair">
+        <div class="gallery-box">Før — bilde 1</div>
+        <div class="gallery-box">Etter — bilde 1</div>
+      </div>
+      <div class="gallery-pair">
+        <div class="gallery-box">Før — bilde 2</div>
+        <div class="gallery-box">Etter — bilde 2</div>
+      </div>
+      <div class="gallery-pair">
+        <div class="gallery-box">Før — bilde 3</div>
+        <div class="gallery-box">Etter — bilde 3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FAQ ════════ -->
+<section class="section" id="faq">
+  <div class="container">
+    <h2 class="section-title">Vanlige spørsmål<div class="divider"></div></h2>
+    <details>
+      <summary>Hvor lang tid tar en full detailing?</summary>
+      <p>En komplett utvendig og innvendig detailing tar vanligvis 4–8 timer, avhengig av bilens tilstand og størrelse. Vi tar oss alltid tid til å gjøre jobben skikkelig.</p>
+    </details>
+    <details>
+      <summary>Må jeg bestille time på forhånd?</summary>
+      <p>Ja, vi anbefaler å bestille minst 2–3 dager i forveien. Ring oss på +47 901 11 222 for å avtale en tid som passer deg.</p>
+    </details>
+    <details>
+      <summary>Hva er keramisk coating?</summary>
+      <p>Keramisk coating er et flytende polymer som legges på bilens lakk. Det skaper et permanent eller semi-permanent lag som beskytter mot riper, UV-stråling, fugleskitt og kjemikalier.</p>
+    </details>
+    <details>
+      <summary>Tilbyr dere henting og levering?</summary>
+      <p>Ja, vi tilbyr henting og levering innenfor Drammen-området mot et lite tillegg. Ta kontakt for mer informasjon.</p>
+    </details>
+    <details>
+      <summary>Hva skiller dere fra en vanlig bilvask?</summary>
+      <p>Vi bruker kun premium produkter og profesjonelt utstyr. Alt gjøres for hånd med fokus på detaljer. Resultatet er en bil som ser bedre ut enn da den var ny.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ════════ KONTAKT ════════ -->
+<section class="section" id="kontakt" style="background: #0e0e0e;">
+  <div class="container">
+    <h2 class="section-title">Kontakt oss<div class="divider"></div></h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Drammen Detailing</h3>
+        <p>Bragernes torg 2, 3017 Drammen<br>Drammen</p>
+        <h3>Telefon</h3>
+        <p><a href="tel:+4790111222" class="gold">+47 901 11 222</a></p>
+        <h3>Åpningstider</h3>
+        <p>Man–fre: 08:00–17:00<br>Lør: 09:00–15:00<br>Søn: Stengt</p>
+        <a href="tel:+4790111222" class="btn-gold" style="margin-top: 8px;">Ring oss nå</a>
+      </div>
+      <div class="contact-map">Kart-placeholder</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer class="footer">
+  &copy; 2026 Drammen Detailing. Alle rettigheter reservert.
+</footer>
+
+<!-- ════════ STICKY MOBIL RINGEKNAPP ════════ -->
+<div class="sticky-call">
+  <a href="tel:+4790111222">📞 Ring Drammen Detailing nå</a>
+</div>
+
 </body>
 </html>
