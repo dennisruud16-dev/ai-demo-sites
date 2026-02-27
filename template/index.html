@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>${business_name} – Bilpleie i ${city}</title>
+  <meta name="description" content="Bilpleie i ${city}. Bestill time hos ${business_name}. ${rating_text}" />
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;color:#111;background:#fff}
+    .wrap{max-width:980px;margin:0 auto;padding:24px}
+    .hero{padding:36px 0 18px;border-bottom:1px solid #eee}
+    h1{font-size:34px;line-height:1.15;margin:0 0 10px}
+    .sub{font-size:16px;color:#444;margin:0 0 16px}
+    .pill{display:inline-block;background:#f5f5f5;border:1px solid #e7e7e7;padding:6px 10px;border-radius:999px;font-size:13px;margin-right:8px;margin-bottom:8px}
+    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700}
+    .btnPrimary{background:#111;color:#fff}
+    .btnGhost{border:1px solid #ddd;color:#111}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;margin:24px 0}
+    .card{border:1px solid #eee;border-radius:16px;padding:16px}
+    .card h2{margin:0 0 10px;font-size:18px}
+    ul{margin:10px 0 0;padding-left:18px;color:#222}
+    li{margin:6px 0}
+    .note{font-size:13px;color:#666;margin-top:14px}
+    .footer{border-top:1px solid #eee;margin-top:28px;padding-top:18px;font-size:13px;color:#666}
+    .small{font-size:12px;color:#777}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .ph{background:#f5f5f5;border:1px dashed #ddd;border-radius:12px;height:140px;display:flex;align-items:center;justify-content:center;color:#777;font-size:13px}
+    @media (max-width:800px){.grid{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <h1>${business_name} – bilpleie i ${city}</h1>
+      <p class="sub">Rask respons • Tydelige priser • Bestill time på under 30 sekunder.</p>
+
+      <div>
+        <span class="pill">📍 ${address}</span>
+        <span class="pill">⭐ ${rating_text}</span>
+        <span class="pill">📞 ${phone}</span>
+      </div>
+
+      <div class="ctaRow">
+        <a class="btn btnPrimary" href="tel:${phone_raw}">Ring og bestill</a>
+        <a class="btn btnGhost" href="${maps_url}" target="_blank" rel="noopener">Åpne i Google Maps</a>
+      </div>
+
+      <p class="note">
+        Demo: Denne siden er laget som en uferdig demoversjon basert på offentlig info. Når dere sier ja, finpusser vi design/tekst og kobler til domene.
+      </p>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Tjenester</h2>
+        <ul>
+          <li>Utvendig vask + forsegling</li>
+          <li>Innvendig rens (seter, tepper, lukt)</li>
+          <li>Polering (1–2 steg)</li>
+          <li>Keramisk coating</li>
+        </ul>
+
+        <div class="two" style="margin-top:14px">
+          <div class="ph">Før / etter (demo)</div>
+          <div class="ph">Før / etter (demo)</div>
+        </div>
+
+        <p class="small" style="margin-top:10px">
+          Når dere sier ja: vi legger inn ekte før/etter-bilder, priser, og evt. booking-lenke.
+        </p>
+      </div>
+
+      <aside class="card">
+        <h2>Bestill raskt</h2>
+        <p style="margin:0 0 10px;color:#444">
+          Ring oss, eller åpne kartet for rute og åpningstider.
+        </p>
+        <div class="ctaRow">
+          <a class="btn btnPrimary" href="tel:${phone_raw}">Ring nå</a>
+          <a class="btn btnGhost" href="${maps_url}" target="_blank" rel="noopener">Kart</a>
+        </div>
+
+        <div style="margin-top:14px">
+          <h2 style="margin-top:0">Hvorfor dette fungerer</h2>
+          <ul>
+            <li>Klar CTA over fold</li>
+            <li>Tillit via rating + adresse</li>
+            <li>Mobil-first: ring med ett trykk</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section class="card">
+      <h2>Kontakt</h2>
+      <p style="margin:0;color:#444">
+        <strong>${business_name}</strong><br>
+        ${address}<br>
+        Telefon: <a href="tel:${phone_raw}">${phone}</a>
+      </p>
+    </section>
+
+    <footer class="footer">
+      <div>© ${year} ${business_name} (demo)</div>
+      <div class="small">Denne demoversjonen er laget for å vise hvordan en enkel konverteringsside kan se ut.</div>
+    </footer>
+  </div>
+</body>
+</html>
